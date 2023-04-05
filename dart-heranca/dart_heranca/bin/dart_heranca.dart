@@ -70,12 +70,17 @@ class Aluno extends Pessoa{
   }
 }
 
+//Criação de uma classe herdando outra, usamos o extends seguido da classe a ser herdada
 class Professor extends Pessoa{
+  //Declaração de propriedades da classe atual
+  //Lembrando que além dessas propriedades a classe também terá as propriedades da classe herdada
   String materia;
   int qtdAulas;
 
+  //Ao criar o contrutor da classe devemos colocar as propriedades da classe herdada seguidas das propriedades da classe atual
   Professor(String nome, int idade, this.materia, this.qtdAulas) : super(nome, idade);
 
+  //Métodos pertencentes somente a classe atual
   void corrigirProva(){
     print("$nome está corrigindo prova");
   }
@@ -84,11 +89,13 @@ class Professor extends Pessoa{
     print("$nome está dando aula");
   }
 
+  //O override serve para sobrepor métodos já existentes, nesse caso estamos sobrepondo o método da classe herdada para retornar o que desejamos
   @override
   void fazerAniversario(){
     print("o Professor da matéria $materia fez aniversário");
   } 
 
+  //Aqui estamos sobrepondo o método toString() assim como comentado na chamada dentro do bloco main()
   @override
   String toString(){
     return "Professor | Nome: $nome, Matéria: $materia";
